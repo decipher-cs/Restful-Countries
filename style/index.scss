@@ -1,0 +1,103 @@
+@use "__fonts.scss" as fonts;
+@use "__var.scss" as var;
+
+*,
+*::after,
+*::before {
+  font-family: "Nunito Sans", sans-serif;
+
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var.$Light-Mode-Background;
+}
+
+button,
+select,
+input {
+  border: 0px;
+  background-color: unset;
+}
+
+.heading {
+  display: flex;
+
+  padding: 1rem;
+
+  @include var.theme;
+  box-shadow: 0px 0px var.$shadow-spread var.$shadow-color;
+
+  &__title {
+    flex-grow: 1;
+  }
+  &__theme-switch-btn {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+    font-weight: 600;
+  }
+  font-size: 0.7rem;
+}
+
+
+
+.filter-section{
+    display: grid;
+    // grid-template-columns: min-content min-content;
+    // justify-content: space-between;
+
+    &__search-box{
+        display: flex;
+
+        @include var.theme;
+        box-shadow: 0px 0px var.$shadow-spread var.$shadow-color;
+
+        button{
+            background: url(https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-magnifying-glass-interface-kiranshastry-lineal-kiranshastry.png) no-repeat center;
+            background-size: contain;
+            padding: 1rem;
+        }
+    }
+
+    &__dropdown{
+        @include var.theme;
+        box-shadow: 0px 0px var.$shadow-spread var.$shadow-color;
+    }
+    option{
+        border: solid green 3px;
+    }
+}
+
+.country-list{
+    display: grid;
+
+    gap: 20px;
+    padding: 20px;
+}
+
+.country-list__country-card{
+  &:not(img){
+    padding-inline: 20px
+  }
+  // background-color: red;
+
+  // padding: 20px;
+  
+  @include var.theme();
+  box-shadow: 0px 0px var.$shadow-spread var.$shadow-color;
+  border-radius: var.$border-radius;
+
+  img{
+    width: 100%;
+  }
+}

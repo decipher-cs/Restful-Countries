@@ -1,0 +1,32 @@
+
+// Colours
+
+$Dark-Mode-Elements: hsl(209, 23%, 22%);
+$Dark-Mode-Background: hsl(207, 26%, 17%);
+$Light-Mode-Text: hsl(200, 15%, 8%);
+$Light-Mode-Input: hsl(0, 0%, 52%);
+$Light-Mode-Background: hsl(0, 0%, 98%);
+$Dark-Mode-Text-and-Light-Mode-Elements: hsl(0, 0%, 100%);
+
+
+// Global vars
+
+$shadow-color: rgb(178, 163, 163);
+$shadow-spread: 5px;
+
+$border-radius: 10px;
+
+@mixin theme {
+    @media (prefers-color-scheme: dark) {
+        color: white;
+        background-color: rgb(0, 255, 55);
+        
+    }
+    
+    @media (prefers-color-scheme: light) {
+        color: black;
+        background-color: rgb(255, 0, 0);
+
+    }
+    
+}
