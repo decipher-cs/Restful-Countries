@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" color-scheme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,8 +14,7 @@
       <h1 class="heading__title">Where in the world?</h1>
       <button class="heading__theme-switch-btn">
         <img
-          <img
-          src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/24/000000/external-crescent-moon-islam-and-ramadan-flatart-icons-solid-flatarticons-1.png"
+          src="https://img.icons8.com/fluency-systems-regular/24/ffffff/crescent-moon.png"
         />
         <span>Dark Mode</span>
       </button>
@@ -23,28 +22,35 @@
     <main class="main-content">
       <section class="filter-section">
         <form class="filter-section__search-box" action="#">
-          <button></button>
-          <input type="text" placeholder="Search for a country..." />
+          <button
+            class="filter-section__search-box--btn"
+            type="submit"
+          ></button>
+          <input
+            class="filter-section__search-box--input"
+            type="text"
+            placeholder="Search for a country..."
+          />
         </form>
-        <!-- <label for="filter-dropdown">template</label> -->
         <select class="filter-section__dropdown" name="" id="filter-dropdown">
-          <option value="">Africa</option>
-          <option value="">America</option>
-          <option value="">Asia</option>
-          <option value="">Europe</option>
-          <option value="">Oceania</option>
+          <option selected disabled value="">Filter</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
       </section>
       <section class="country-list">
-        <!-- <article class="country-list__country-card card">
-          <img
-            src=""
-          />
-          <h4>Country Name</h4>
-          <p>Population</p>
-          <p>Region</p>
-          <p>Capital</p>
-        </article> -->
+        <template class="">
+          <article class="country-list__country-card card">
+            <img src="" />
+            <h4>Country Name</h4>
+            <p>Population</p>
+            <p>Region</p>
+            <p>Capital</p>
+          </article>
+        </template>
       </section>
     </main>
   </body>

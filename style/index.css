@@ -118,21 +118,48 @@
   src: url(https://fonts.gstatic.com/s/nunitosans/v11/pe03MImSLYBIv1o4X1M8cc8aBc5tU1E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+:root {
+  --text-light: hsl(200deg, 15%, 8%);
+  --bg-light: hsl(0deg, 0%, 98%);
+  --input-light: hsl(0deg, 0%, 52%);
+  --elements-light: hsl(0deg, 0%, 100%);
+  --shadow-color-light: #404040;
+  --text-dark: hsl(0deg, 0%, 100%);
+  --bg-dark: hsl(207deg, 26%, 17%);
+  --input-dark: hsl(209deg, 23%, 22%);
+  --elements-dark: hsl(209deg, 23%, 22%);
+  --shadow-color-dark: rgb(0, 0, 0);
+}
+
+[color-scheme=dark] {
+  --text: var(--text-dark);
+  --bg: var(--bg-dark);
+  --input: var(--input-dark);
+  --elements: var(--elements-dark);
+  --shadow-color: var(--shadow-color-dark) ;
+}
+
+[color-scheme=light] {
+  --text: var(--text-light);
+  --bg: var(--bg-light);
+  --input: var(--input-light);
+  --elements: var(--elements-light);
+  --shadow-color: var(--shadow-color-light) ;
+}
+
 *,
 *::after,
 *::before {
   font-family: "Nunito Sans", sans-serif;
+  color: var(--text);
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-}
-
-:root {
-  color-scheme: light;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 body {
-  background-color: hsl(0deg, 0%, 98%);
+  background-color: var(--bg);
 }
 
 button,
@@ -145,20 +172,8 @@ input {
 .heading {
   display: flex;
   padding: 1rem;
-  box-shadow: 0px 0px 5px rgb(178, 163, 163);
+  box-shadow: 0px 0px 5px var(--shadow-color);
   font-size: 0.7rem;
-}
-@media (prefers-color-scheme: dark) {
-  .heading {
-    color: white;
-    background-color: rgb(0, 255, 55);
-  }
-}
-@media (prefers-color-scheme: light) {
-  .heading {
-    color: black;
-    background-color: rgb(255, 0, 0);
-  }
 }
 .heading__title {
   flex-grow: 1;
@@ -173,42 +188,20 @@ input {
 
 .filter-section {
   display: grid;
+  padding: 20px;
+  gap: 30px;
 }
 .filter-section__search-box {
   display: flex;
-  box-shadow: 0px 0px 5px rgb(178, 163, 163);
-}
-@media (prefers-color-scheme: dark) {
-  .filter-section__search-box {
-    color: white;
-    background-color: rgb(0, 255, 55);
-  }
-}
-@media (prefers-color-scheme: light) {
-  .filter-section__search-box {
-    color: black;
-    background-color: rgb(255, 0, 0);
-  }
+  box-shadow: 0px 0px 5px var(--shadow-color);
 }
 .filter-section__search-box button {
-  background: url(https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-magnifying-glass-interface-kiranshastry-lineal-kiranshastry.png) no-repeat center;
+  background: url(https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/808080/external-magnifying-glass-interface-kiranshastry-lineal-kiranshastry.png) no-repeat center;
   background-size: contain;
   padding: 1rem;
 }
 .filter-section__dropdown {
-  box-shadow: 0px 0px 5px rgb(178, 163, 163);
-}
-@media (prefers-color-scheme: dark) {
-  .filter-section__dropdown {
-    color: white;
-    background-color: rgb(0, 255, 55);
-  }
-}
-@media (prefers-color-scheme: light) {
-  .filter-section__dropdown {
-    color: black;
-    background-color: rgb(255, 0, 0);
-  }
+  box-shadow: 0px 0px 5px var(--shadow-color);
 }
 .filter-section option {
   border: solid green 3px;
@@ -216,28 +209,20 @@ input {
 
 .country-list {
   display: grid;
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: minmax(0px, 300px);
+  justify-content: center;
+  gap: 50px;
+  padding: 40px;
 }
 
 .country-list__country-card {
-  box-shadow: 0px 0px 5px rgb(178, 163, 163);
-  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px var(--shadow-color);
+  border-radius: 7px;
 }
-.country-list__country-card:not(img) {
+.country-list__country-card :not(img) {
   padding-inline: 20px;
-}
-@media (prefers-color-scheme: dark) {
-  .country-list__country-card {
-    color: white;
-    background-color: rgb(0, 255, 55);
-  }
-}
-@media (prefers-color-scheme: light) {
-  .country-list__country-card {
-    color: black;
-    background-color: rgb(255, 0, 0);
-  }
 }
 .country-list__country-card img {
   width: 100%;

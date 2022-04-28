@@ -11,22 +11,8 @@ $Dark-Mode-Text-and-Light-Mode-Elements: hsl(0, 0%, 100%);
 
 // Global vars
 
-$shadow-color: rgb(178, 163, 163);
+$shadow-color-dark: rgb(0, 0, 0);
+$shadow-color-light: complement(rgb(64, 64, 64));
 $shadow-spread: 5px;
 
-$border-radius: 10px;
-
-@mixin theme {
-    @media (prefers-color-scheme: dark) {
-        color: white;
-        background-color: rgb(0, 255, 55);
-        
-    }
-    
-    @media (prefers-color-scheme: light) {
-        color: black;
-        background-color: rgb(255, 0, 0);
-
-    }
-    
-}
+$border-radius: 7px;

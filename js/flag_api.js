@@ -1,13 +1,31 @@
-import Fuse from 'fuse.js'
-
-
-
 //////////////////////
 //* Const and Vars*//
 ////////////////////
-console.log("hello")
+
+const apiUrl = "https://restcountries.com/v2/all?fields=name,population,region,capital,flag";
+
 const countryList = document.querySelector(".country-list");
-var apiData = null;
+var countryListjson = null;
+
+// search box
+const searchBox = document.querySelector(".filter-section__search-box--input");
+
+// filter dropdown
+const filter = document.querySelector(".filter-section__dropdown");
+
+/////////////////////
+//*  API calls   *//
+///////////////////
+
+fetch(apiUrl).then((data) => {
+    return data.json()
+}).then((data) => {
+    countryListjson = data
+}).then(() => {
+    for (let i = 1; i <= 10; i++) {
+        countryList.appendChild(makeNode(countryListjson[getRandom(countryListjson.length)]))
+    }
+})
 
 
 ////////////////////
@@ -27,6 +45,7 @@ makeNode = (data) => {
     node.classList.add("country-list__country-card")
 
     flag.setAttribute("src", `${data.flag}`)
+    // flag.setAttribute("loading", `lazy`)
     heading.textContent = `Country Name: ${data.name}`
     population.textContent = `population: ${data.population}`
     region.textContent = `region: ${data.region}`
@@ -45,21 +64,36 @@ let getRandom = (max) => {
     return Math.floor(Math.random() * max)
 }
 
+// Clear country list
+
+let clearCountryList = () => {
+    let cardList = document.querySelectorAll(".country-list__country-card")
+    cardList.forEach((item)=>{
+        item.remove()
+    })
+}
+
 
 ////////////////////////////
 //*   Event Listeners   *//
 //////////////////////////
 
-window.onload = () => {
+searchBox.addEventListener("input", (input) => {
+    console.log(input.target.value)
+    // countryListjson.filter
+})
 
-    fetch("https://restcountries.com/v2/all").then((data) => {
-        return data.json()
-    }).then((data) => {
-        apiData = data
-    }).then(() => {
-        for (let i = 1; i <= 5; i++) {
-            countryList.appendChild(makeNode(apiData[getRandom(apiData.length)]))
+
+filter.addEventListener("change", (e) => {
+    console.log(e.target.value)
+    let filteredList = countryListjson.filter((item) => {
+        if (item.region == e.target.value) {
+            return true
         }
-    })
-
-}
+    });
+    console.log(filteredList)
+    clearCountryList()
+    for (var i in filteredList){
+        countryList.appendChild(makeNode(filteredList[i]))
+    }
+})

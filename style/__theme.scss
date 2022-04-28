@@ -1,0 +1,30 @@
+@use "__var.scss" as var; 
+
+:root{
+    --text-light:  #{var.$Light-Mode-Text};
+    --bg-light:  #{var.$Light-Mode-Background};
+    --input-light:  #{var.$Light-Mode-Input};
+    --elements-light:  #{var.$Dark-Mode-Text-and-Light-Mode-Elements};
+    --shadow-color-light: #{var.$shadow-color-light};
+
+    --text-dark:  #{var.$Dark-Mode-Text-and-Light-Mode-Elements};
+    --bg-dark:  #{var.$Dark-Mode-Background};
+    --input-dark:  #{var.$Dark-Mode-Elements};
+    --elements-dark:  #{var.$Dark-Mode-Elements};
+    --shadow-color-dark: #{var.$shadow-color-dark};
+}
+
+[color-scheme = "dark"]{
+    --text: var(--text-dark);
+    --bg: var(--bg-dark);
+    --input: var(--input-dark);
+    --elements: var(--elements-dark);
+    --shadow-color: var(--shadow-color-dark)
+}
+[color-scheme = "light"]{
+    --text: var(--text-light);
+    --bg: var(--bg-light);
+    --input: var(--input-light);
+    --elements: var(--elements-light);
+    --shadow-color: var(--shadow-color-light)
+}
