@@ -32,7 +32,6 @@ fetch(apiUrl).then((data) => {
 //*  Functions  *//
 //////////////////
 
-// Get country data from API
 // Create node and attach it to the country list
 makeNode = (data) => {
     let node = document.createElement("article");
@@ -78,20 +77,31 @@ let clearCountryList = () => {
 //*   Event Listeners   *//
 //////////////////////////
 
+// Filter country list by user-query
 searchBox.addEventListener("input", (input) => {
-    console.log(input.target.value)
-    // countryListjson.filter
+    var query = input.target.value
+    let filteredList = []
+    let regex = new RegExp(query, 'i')
+    
+    countryListjson.forEach((item) => {
+        if ( regex.test(item.name) || regex.test(item.capital) ){
+            filteredList.push(item)
+        } 
+    });
+    clearCountryList()
+    for (var i in filteredList){
+        countryList.appendChild(makeNode(filteredList[i]))
+    }
+
 })
 
-
+// Filter country list by continent
 filter.addEventListener("change", (e) => {
-    console.log(e.target.value)
     let filteredList = countryListjson.filter((item) => {
         if (item.region == e.target.value) {
             return true
         }
     });
-    console.log(filteredList)
     clearCountryList()
     for (var i in filteredList){
         countryList.appendChild(makeNode(filteredList[i]))
