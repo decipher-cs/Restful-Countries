@@ -2,7 +2,8 @@
 //* Const and Vars*//
 ////////////////////
 
-const apiUrl = "https://restcountries.com/v2/all?fields=name,population,region,capital,flag";
+const apiUrl = "https://restcountries.com/v2/all";
+// const apiUrl = "https://restcountries.com/v2/all?fields=name,population,region,capital,flag";
 
 const countryList = document.querySelector(".country-list");
 var countryListjson = null;
@@ -22,8 +23,9 @@ fetch(apiUrl).then((data) => {
 }).then((data) => {
     countryListjson = data
 }).then(() => {
-    for (let i = 1; i <= 10; i++) {
-        countryList.appendChild(makeNode(countryListjson[getRandom(countryListjson.length)]))
+    for (let i = 1; i <= 6; i++) {
+        var randCountry = getRandom(countryListjson.length)
+        countryList.appendChild(makeNode(countryListjson[randCountry], randCountry))
     }
 })
 
@@ -33,7 +35,7 @@ fetch(apiUrl).then((data) => {
 //////////////////
 
 // Create node and attach it to the country list
-makeNode = (data) => {
+makeNode = (data, index) => {
     let node = document.createElement("article");
     let flag = document.createElement("img");
     let heading = document.createElement("h4")
@@ -42,10 +44,11 @@ makeNode = (data) => {
     let capital = document.createElement("p");
 
     node.classList.add("country-list__country-card")
+    node.setAttribute("data-index", index)
 
     flag.setAttribute("src", `${data.flag}`)
     // flag.setAttribute("loading", `lazy`)
-    heading.textContent = `Country Name: ${data.name}`
+    heading.textContent = `Country: ${data.name}`
     population.textContent = `population: ${data.population}`
     region.textContent = `region: ${data.region}`
     capital.textContent = `capital: ${data.capital}`
@@ -64,7 +67,6 @@ let getRandom = (max) => {
 }
 
 // Clear country list
-
 let clearCountryList = () => {
     let cardList = document.querySelectorAll(".country-list__country-card")
     cardList.forEach((item)=>{
@@ -83,27 +85,38 @@ searchBox.addEventListener("input", (input) => {
     let filteredList = []
     let regex = new RegExp(query, 'i')
     
-    countryListjson.forEach((item) => {
+    countryListjson.forEach((item, index) => {
         if ( regex.test(item.name) || regex.test(item.capital) ){
-            filteredList.push(item)
+            filteredList.push([index ,item])
         } 
     });
     clearCountryList()
-    for (var i in filteredList){
-        countryList.appendChild(makeNode(filteredList[i]))
-    }
+    filteredList.forEach((item)=>{
+        countryList.appendChild(makeNode(item[1],item[0]))
+    })
 
 })
 
 // Filter country list by continent
 filter.addEventListener("change", (e) => {
-    let filteredList = countryListjson.filter((item) => {
+    let filteredList =[]
+    countryListjson.forEach((item, index) => {
         if (item.region == e.target.value) {
-            return true
+            filteredList.push([index, item])
         }
     });
     clearCountryList()
-    for (var i in filteredList){
-        countryList.appendChild(makeNode(filteredList[i]))
+    filteredList.forEach((item)=>{
+        countryList.appendChild(makeNode(item[1],item[0]))
+    })
+})
+
+countryList.addEventListener("click", (item)=>{
+    var countryName = item.target.parentNode.childNodes[1].innerText.replace(/\w+: /, "")
+    var countryIndex = item.target.parentNode.getAttribute("data-index")
+    var countryData = JSON.stringify(countryListjson[countryIndex])
+    if (item.target.parentNode.classList == 'country-list__country-card'){
+        window.location.href = `/country_details.html?data=${countryData}`
+        console.log("YOU HAVE BEEN REDIRECTED!")
     }
 })
