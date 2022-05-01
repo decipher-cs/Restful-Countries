@@ -3,7 +3,6 @@
 ////////////////////
 
 const apiUrl = "https://restcountries.com/v2/all";
-// const apiUrl = "https://restcountries.com/v2/all?fields=name,population,region,capital,flag";
 
 const countryList = document.querySelector(".country-list");
 var countryListjson = null;
@@ -22,6 +21,7 @@ fetch(apiUrl).then((data) => {
     return data.json()
 }).then((data) => {
     countryListjson = data
+    console.log(data)
 }).then(() => {
     for (let i = 1; i <= 6; i++) {
         var randCountry = getRandom(countryListjson.length)
@@ -47,7 +47,6 @@ makeNode = (data, index) => {
     node.setAttribute("data-index", index)
 
     flag.setAttribute("src", `${data.flag}`)
-    // flag.setAttribute("loading", `lazy`)
     heading.textContent = `Country: ${data.name}`
     population.textContent = `population: ${data.population}`
     region.textContent = `region: ${data.region}`
@@ -62,6 +61,7 @@ makeNode = (data, index) => {
     return node
 }
 
+// Get a random number to display random countries each time the page loads
 let getRandom = (max) => {
     return Math.floor(Math.random() * max)
 }
@@ -111,6 +111,7 @@ filter.addEventListener("change", (e) => {
     })
 })
 
+// Create a URL which links to another html page and add the json object of a country as a parameter to the url
 countryList.addEventListener("click", (item)=>{
     var countryName = item.target.parentNode.childNodes[1].innerText.replace(/\w+: /, "")
     var countryIndex = item.target.parentNode.getAttribute("data-index")

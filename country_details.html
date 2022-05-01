@@ -18,25 +18,50 @@
       </button>
     </header>
 
-    <button id="aaa">
-      <a href="/index.html"> Go back </a>
-    </button>
-    <main>
-      <img src="https://picsum.photos/250" />
-      <h3>Country Name:</h3>
-      <ul style="list-style-type: none">
-        <li>Native Name:</li>
-        <li>Population:</li>
-        <li>Region:</li>
-        <li>Sub Region:</li>
-        <li>Capital:</li>
-        <br />
-        <li>Top Level Domain:</li>
-        <li>Currencies:</li>
-        <li>Languages:</li>
+    <main class="main-content">
+      <form class="main-content__redirection" action="/index.html">
+        <button
+          class="main-content__redirection--btn"
+          type="submit"
+          id="to-index"
+        >
+          Go back
+        </button>
+      </form>
+
+      <ul
+        class="main-content__country-details country-details"
+        style="list-style-type: none"
+      >
+        <li class="country-details__datum datum-county-flag-wrapper">
+          <img
+            class="country-details__daatum__img datum-country-flag-img"
+            src=""
+            alt="Flag of a country."
+            width="100%"
+          />
+        </li>
+        <li><br /></li>
+        <li class="country-details__datum datum-auto-apply"></li>
+        <li><br /></li>
+        <li class="country-details__datum datum-auto-apply">Native Name:</li>
+        <li class="country-details__datum datum-auto-apply">Population:</li>
+        <li class="country-details__datum datum-auto-apply">Region:</li>
+        <li class="country-details__datum datum-auto-apply">Sub Region:</li>
+        <li class="country-details__datum datum-auto-apply">Capital:</li>
+        <li><br /></li>
+        <li class="country-details__datum datum-auto-apply">
+          Top Level Domain:
+        </li>
+        <li class="country-details__datum datum-auto-apply">Currencies:</li>
+        <li class="country-details__datum datum-auto-apply">Languages:</li>
+        <li class="country-details__datum datum-border-countries">
+          <h4>Border Countries:</h4>
+          <template>
+            <button>Name</button><button>Name</button><button>Name</button>
+          </template>
+        </li>
       </ul>
-      <h4>Border Countries:</h4>
-      <button>Name</button><button>Name</button><button>Name</button>
     </main>
   </body>
 </html>
