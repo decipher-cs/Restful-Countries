@@ -118,6 +118,5 @@ countryList.addEventListener("click", (item)=>{
     var countryData = JSON.stringify(countryListjson[countryIndex])
     if (item.target.parentNode.classList == 'country-list__country-card'){
         window.location.href = `/country_details.html?data=${countryData}`
-        console.log("YOU HAVE BEEN REDIRECTED!")
     }
 })
