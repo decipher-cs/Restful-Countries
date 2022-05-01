@@ -16,3 +16,26 @@ $shadow-color-light: complement(rgb(64, 64, 64));
 $shadow-spread: 5px;
 
 $border-radius: 7px;
+
+@mixin heading-config(){
+    display: flex;
+
+    padding: 1rem;
+  
+    // @include var.theme;
+    box-shadow: 0px 0px $shadow-spread var(--shadow-color);
+  
+    &__title {
+      flex-grow: 1;
+    }
+    &__theme-switch-btn {
+      display: flex;
+      align-items: center;
+  
+      gap: 10px;
+  
+      cursor: pointer;
+      font-weight: 600;
+    }
+    font-size: 0.7rem;
+}

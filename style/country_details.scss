@@ -1,0 +1,31 @@
+@use "__fonts.scss" as fonts; //do something about font duplication. todo
+@use "__var.scss" as var;
+@use "__theme.scss" as theme;
+// @use "index.scss" as index;
+
+*,
+*::after,
+*::before {
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--text);
+
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+button,
+select,
+input {
+  border: 0px;
+  background-color: unset;
+}
+.heading {
+  @include var.heading-config;
+}
