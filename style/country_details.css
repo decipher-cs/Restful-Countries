@@ -184,4 +184,39 @@ input {
   gap: 10px;
   cursor: pointer;
   font-weight: 600;
+}
+
+.main-content {
+  padding-inline: 40px;
+  padding-top: 20px;
+}
+
+@media (min-width: 500px) {
+  .main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    -moz-column-gap: 40px;
+         column-gap: 40px;
+  }
+  .main-content__redirection {
+    grid-column: span 3;
+  }
+  .main-content__datum-img {
+    align-self: flex-start;
+    grid-row: 2/5;
+  }
+  .main-content__datum--country-title {
+    grid-column: span 2;
+  }
+  .main-content__country-details--geography {
+    align-self: flex-start;
+  }
+  .main-content__country-details--specs {
+    align-self: flex-start;
+  }
+  .main-content__border-countries {
+    grid-column: 2/-1;
+    display: flex;
+    gap: 20px;
+  }
 }/*# sourceMappingURL=country_details.css.map */

@@ -60,6 +60,10 @@ let parseAndPutLang = ()=>{
 let borderCountriesBtn = ()=>{
     let regex = new RegExp(`"borders":\\[([^\\]]+)`)
     var borderArr = apiDataStr.match(regex)[1].replaceAll('"',"").split(",")
+    if (borderArr.length === 0){
+        borderCountriesContainer.innerHTML+=`<p>None</p>`
+        return
+    }
     for (var i=0; i<borderArr.length ; i++){
         borderCountriesContainer.innerHTML+=`<button>${borderArr[i]}</button>`
     }

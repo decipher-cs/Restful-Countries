@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="/js/country_details.js"></script>
     <script defer src="/js/theme-switching.js"></script>
-    <link rel="stylesheet" href="/style/country_details.css">
+    <link rel="stylesheet" href="/style/country_details.css" />
     <title>Country Name</title>
   </head>
   <body>
@@ -31,39 +31,44 @@
         </button>
       </form>
 
+      <img
+        class="main-content__datum-img country-details__datum__img datum-country-flag-img"
+        src=""
+        alt="Flag of a country."
+        width="100%"
+      />
+      <h3
+        class="main-content__datum--country-title country-details__datum datum-auto-apply"
+      ></h3>
       <ul
-        class="main-content__country-details country-details"
+        class="main-content__country-details--geography country-details"
         style="list-style-type: none"
       >
-        <li class="country-details__datum datum-county-flag-wrapper">
-          <img
-            class="country-details__daatum__img datum-country-flag-img"
-            src=""
-            alt="Flag of a country."
-            width="100%"
-          />
-        </li>
-        <li><br /></li>
-        <li class="country-details__datum datum-auto-apply"></li>
-        <li><br /></li>
+        <!-- <li class="country-details__datum datum-auto-apply"></li> -->
+        <!-- <li><br /></li> -->
         <li class="country-details__datum datum-auto-apply">Native Name:</li>
         <li class="country-details__datum datum-auto-apply">Population:</li>
         <li class="country-details__datum datum-auto-apply">Region:</li>
         <li class="country-details__datum datum-auto-apply">Sub Region:</li>
         <li class="country-details__datum datum-auto-apply">Capital:</li>
         <li><br /></li>
+      </ul>
+      <ul
+        class="main-content__country-details--specs country-details"
+        style="list-style-type: none"
+      >
         <li class="country-details__datum datum-auto-apply">
           Top Level Domain:
         </li>
+
         <li class="country-details__datum datum-auto-apply">Currencies:</li>
         <li class="country-details__datum datum-languages">Languages:</li>
-        <li class="country-details__datum datum-border-countries">
-          <h4>Border Countries:</h4>
-          <template>
-            <button>Name</button><button>Name</button><button>Name</button>
-          </template>
-        </li>
       </ul>
+      <article
+        class="main-content__border-countries country-details__datum datum-border-countries"
+      >
+        <h4>Border Countries:</h4>
+      </article>
     </main>
   </body>
 </html>

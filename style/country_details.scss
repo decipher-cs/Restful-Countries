@@ -29,3 +29,39 @@ input {
 .heading {
   @include var.heading-config;
 }
+
+.main-content {
+  padding-inline: 40px;
+  padding-top: 20px;
+}
+
+@media (min-width: 500px) {
+  .main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    column-gap: 40px;
+
+    &__redirection {
+      grid-column: span 3;
+    }
+    &__datum-img {
+      align-self: flex-start;
+      grid-row: 2/5;
+    }
+    &__datum--country-title {
+      grid-column: span 2;
+    }
+    &__country-details--geography {
+      align-self: flex-start;
+    }
+    &__country-details--specs {
+      align-self: flex-start;
+    }
+    &__border-countries {
+      grid-column: 2/-1;
+
+      display: flex;
+      gap: 20px;
+    }
+  }
+}
