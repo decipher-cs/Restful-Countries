@@ -209,7 +209,7 @@ input {
 
 .country-list {
   display: grid;
-  grid-template-columns: minmax(0px, 300px);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   justify-content: center;
   gap: 50px;
   padding: 40px;

@@ -17,6 +17,8 @@ $shadow-spread: 5px;
 
 $border-radius: 7px;
 
+$desktop-media-query: 700px;
+
 @mixin heading-config(){
     display: flex;
 
