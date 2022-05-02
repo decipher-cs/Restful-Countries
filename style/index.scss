@@ -28,49 +28,63 @@ input {
 
 .heading {
   @include var.heading-config();
- 
 }
 
 .filter-section {
-  display: grid;
-  // grid-template-columns: min-content min-content;
-  // justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
   padding: 20px;
   gap: 30px;
 
-  &__search-box {
-    display: flex;
-    box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
-
-    button {
-      background: url(https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/808080/external-magnifying-glass-interface-kiranshastry-lineal-kiranshastry.png)
-        no-repeat center;
-      background-size: contain;
-      padding: 1rem;
-    }
-  }
-
+  &__search-box, 
   &__dropdown {
     box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
   }
-  option {
-    border: solid green 3px;
+  &__search-box::before {
+    content: "";
+    background: url("https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/808080/external-magnifying-glass-interface-kiranshastry-lineal-kiranshastry.png") no-repeat center;
+    background-size: contain;
+    padding: 1rem;
   }
+}
+
+.filter-section__dropdown{
+  position: relative;
+
+  &--toggle-btn{
+    border: solid red 3px;
+  }
+  
+  &--toggle-btn{
+    display: none;
+  }
+  &--toggle-img{
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 300ms ease-in-out;
+  }
+  &--toggle-btn:checked ~ &--toggle-img{
+    transform: rotate(180deg);
+    transition: transform 300ms ease-in-out;
+  }
+
+  &--cascade{
+    position: absolute;
+    background-color: black;
+  }
+
 }
 
 .country-list {
   display: grid;
-  // grid-template-columns: minmax(0px, 300px);
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
 
-  justify-content: center;
+  justify-content: space-evenly;
 
   gap: 50px;
   padding: 40px;
-
-  // @media screen and (min-width: var.$desktop-media-query){
-    
-  // }
 }
 
 .country-list__country-card {
@@ -87,4 +101,11 @@ input {
   img {
     width: 100%;
   }
+}
+
+// Hide the filter dropdown menu
+.hide-cascade{
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 300ms ease-in-out;
 }

@@ -11,7 +11,7 @@ var countryListjson = null;
 const searchBox = document.querySelector(".filter-section__search-box--input");
 
 // filter dropdown
-const filter = document.querySelector(".filter-section__dropdown");
+const filter = document.querySelector(".filter-section__dropdown--cascade");
 
 /////////////////////
 //*  API calls   *//
@@ -82,6 +82,7 @@ let clearCountryList = () => {
 // Filter country list by user-query
 searchBox.addEventListener("input", (input) => {
     var query = input.target.value
+    query = query.trim()
     let filteredList = []
     let regex = new RegExp(query, 'i')
     
@@ -98,10 +99,10 @@ searchBox.addEventListener("input", (input) => {
 })
 
 // Filter country list by continent
-filter.addEventListener("change", (e) => {
+filter.addEventListener("click", (e) => {
     let filteredList =[]
     countryListjson.forEach((item, index) => {
-        if (item.region == e.target.value) {
+        if (item.region == e.target.textContent) {
             filteredList.push([index, item])
         }
     });

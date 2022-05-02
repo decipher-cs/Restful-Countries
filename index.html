@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/style/index.css" />
     <script defer src="/js/flag_api.js"></script>
     <script defer src="/js/theme-switching.js"></script>
+    <script defer src="/js/filter_toggle.js"></script>
     <title>Rest Countries</title>
   </head>
   <body>
@@ -22,24 +23,31 @@
     <main class="main-content">
       <section class="filter-section">
         <form class="filter-section__search-box" action="#">
-          <button
-            class="filter-section__search-box--btn"
-            type="submit"
-          ></button>
           <input
             class="filter-section__search-box--input"
             type="text"
             placeholder="Search for a country..."
           />
         </form>
-        <select class="filter-section__dropdown" name="" id="filter-dropdown">
-          <option selected disabled value="">Filter</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
+        <div class="filter-section__dropdown" id="filter-dropdown">
+          <label for="toggle-btn" class="filter-section__dropdown--toggle-label"
+            >Filter by Region
+            <input
+              type="checkbox"
+              class="filter-section__dropdown--toggle-btn"
+              id="toggle-btn"
+            />
+            <img class="filter-section__dropdown--toggle-img" src="https://img.icons8.com/material-rounded/24/ffffff/circled-up.png" alt="">
+          </label>
+
+          <div class="filter-section__dropdown--cascade">
+            <div>Africa</div>
+            <div>Americas</div>
+            <div>Asia</div>
+            <div>Europe</div>
+            <div>Oceania</div>
+          </div>
+        </div>
       </section>
       <section class="country-list">
         <template class="">
