@@ -239,12 +239,14 @@ input {
 }
 
 .filter-section__search-box {
+  display: flex;
   width: clamp(300px, 40vw, 500px);
   padding: 0.9em 1em;
   border-radius: 7px;
   box-shadow: 0px 0px 24px var(--shadow-color);
 }
 .filter-section__search-box--input {
+  width: 100%;
   padding: 0.4em 0.2em;
 }
 .filter-section__search-box::before {
@@ -308,6 +310,7 @@ input {
 .country-list__country-card {
   overflow: hidden;
   cursor: pointer;
+  padding-bottom: 1em;
   box-shadow: 0px 0px 24px var(--shadow-color);
   border-radius: 7px;
 }
@@ -316,6 +319,7 @@ input {
 }
 .country-list__country-card img {
   width: 100%;
+  height: auto;
 }
 
 .hide-cascade {

@@ -11,12 +11,20 @@ let domDataList = document.querySelectorAll(".datum-auto-apply");
 const countryFlagImg = document.querySelector(".datum-country-flag-img");
 const languageList = document.querySelector(".datum-languages")
 const borderCountriesContainer = document.querySelector(".datum-border-countries")
+const redirectionBtn = document.querySelector(".main-content__redirection");
 
 
 // Parsed values from URL parameters
 var dataSet;
 
+/////////////////////////
+//*  Event Listeners  *//
+///////////////////////
 
+redirectionBtn.onclick = ()=>{
+    window.location.href = '/index.html'
+    console.log("fahd")
+}
 
 /////////////////////
 //*  FUNCTIONS   *//

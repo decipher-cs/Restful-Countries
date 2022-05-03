@@ -1,8 +1,7 @@
 @use "__fonts.scss" as fonts; //do something about font duplication. todo
 @use "__var.scss" as var;
 @use "__theme.scss" as theme;
-// @use "index.scss" as index;
-
+@use "__design_country-details.scss" as design;
 *,
 *::after,
 *::before {
@@ -16,23 +15,41 @@
   transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 }
 
-body {
-  background-color: var(--bg);
+button {
+  border: 0px;
+  cursor: pointer;
+  box-shadow: 0px 0px var.$shadow-spread var(--shadow);
 }
 
-button,
-select,
-input {
-  border: 0px;
-  background-color: unset;
-}
 .heading {
   @include var.heading-config;
+
+  button {
+    background-color: unset;
+  }
 }
 
 .main-content {
   padding-inline: 40px;
   padding-top: 20px;
+
+  &__redirection {
+    display: flex;
+    justify-content: center;
+
+    padding-block: var.$padding-block;
+    padding-inline: var.$padding-inline;
+    margin-bottom: 20px;
+
+    width: clamp(110px, 25vw, 170px);
+
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  &__border-countries button {
+    margin-right: 15px;
+  }
 }
 
 @media (min-width: var.$desktop-media-query) {
@@ -41,27 +58,27 @@ input {
     grid-template-columns: 2fr 1fr 1fr;
     column-gap: 40px;
 
-    &__redirection {
-      grid-column: span 3;
-    }
+    grid-column: span 3;
+
     &__datum-img {
       align-self: flex-start;
       grid-row: 2/5;
     }
     &__datum--country-title {
       grid-column: span 2;
+      grid-row: 2/3;
     }
     &__country-details--geography {
       align-self: flex-start;
+      grid-row: 3/4;
     }
     &__country-details--specs {
       align-self: flex-start;
+      grid-row: 3/4;
     }
     &__border-countries {
       grid-column: 2/-1;
-
-      display: flex;
-      gap: 20px;
+      grid-row: 4/5;
     }
   }
 }
