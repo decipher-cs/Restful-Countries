@@ -1,7 +1,8 @@
 @use "__fonts.scss" as fonts;
 @use "__var.scss" as var;
 @use "__theme.scss" as theme;
-
+@use "__design.scss" as design;
+//congo todo
 *,
 *::after,
 *::before {
@@ -15,12 +16,7 @@
   transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 }
 
-body {
-  background-color: var(--bg);
-}
-
 button,
-select,
 input {
   border: 0px;
   background-color: unset;
@@ -34,47 +30,80 @@ input {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  
-  padding: 20px;
-  gap: 30px;
 
-  &__search-box, 
-  &__dropdown {
-    box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
+  align-items: center;
+  
+  padding-block: calc(var.$padding-block + 1em);
+  padding-inline: calc(var.$padding-inline + 1.4em);
+  gap: 40px;
+
+
+}
+.filter-section__search-box{
+  width: clamp(300px, 40vw, 500px);
+  
+  padding: var.$padding-block var.$padding-inline;
+
+  border-radius: var.$border-radius;
+  box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
+  &--input{
+    padding: calc(var.$padding-block - 0.5em) calc(var.$padding-inline - 0.8em);
   }
-  &__search-box::before {
+  &::before {
     content: "";
     background: url("https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/808080/external-magnifying-glass-interface-kiranshastry-lineal-kiranshastry.png") no-repeat center;
     background-size: contain;
     padding: 1rem;
+    margin-right: 14px;
   }
 }
-
 .filter-section__dropdown{
-  position: relative;
-
-  &--toggle-btn{
-    border: solid red 3px;
-  }
   
+  position: relative;
+  cursor: pointer;
+  &--toggle-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: clamp(200px , 20vw, 300px);
+
+    padding: calc(var.$padding-block + calc(var.$padding-block - 0.6em)) calc(var.$padding-inline + calc(var.$padding-inline - 0.8em));
+    border-radius: var.$border-radius;
+    box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
+  cursor: pointer;
+  }
   &--toggle-btn{
     display: none;
   }
   &--toggle-img{
     display: inline-block;
     transform: rotate(0deg);
-    transition: transform 300ms ease-in-out;
+    transition: transform 400ms ease-in-out;
   }
   &--toggle-btn:checked ~ &--toggle-img{
-    transform: rotate(180deg);
-    transition: transform 300ms ease-in-out;
+    transform: rotate(calc(180deg * 3));
+    transition: transform 400ms ease-in-out;
   }
 
   &--cascade{
+    overflow: hidden;
     position: absolute;
-    background-color: black;
-  }
+    display: grid;
+    
+    gap: 10px;
+    
+    max-height: 300px;
 
+    inset-inline: 0px;
+    padding-block: var.$padding-block;
+    padding-inline: var.$padding-inline;
+
+    border-radius: var.$border-radius;
+    box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
+    transform: translateY(5px);
+    transition:padding 300ms,  max-height 300ms ease-in-out;
+  }
 }
 
 .country-list {
@@ -91,7 +120,8 @@ input {
   overflow: hidden;
   cursor: pointer;
 
-  & :not(img) {
+  // Select every h4 and p tag but not the img tag
+  & h4:not(img), & p:not(img){
     padding-inline: 20px;
   }
 
@@ -105,7 +135,7 @@ input {
 
 // Hide the filter dropdown menu
 .hide-cascade{
-  overflow: hidden;
+  padding: 0px;
   max-height: 0px;
-  transition: max-height 300ms ease-in-out;
+    transition:padding 300ms ease-in-out, max-height 300ms ease-in-out;
 }

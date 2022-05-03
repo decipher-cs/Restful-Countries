@@ -11,6 +11,7 @@ var countryListjson = null;
 const searchBox = document.querySelector(".filter-section__search-box--input");
 
 // filter dropdown
+const filterLabel = document.querySelector(".filter-section__dropdown--toggle-text");
 const filter = document.querySelector(".filter-section__dropdown--cascade");
 
 /////////////////////
@@ -47,10 +48,10 @@ makeNode = (data, index) => {
     node.setAttribute("data-index", index)
 
     flag.setAttribute("src", `${data.flag}`)
-    heading.textContent = `Country: ${data.name}`
-    population.textContent = `population: ${data.population}`
-    region.textContent = `region: ${data.region}`
-    capital.textContent = `capital: ${data.capital}`
+    heading.innerHTML = `${data.name}`
+    population.innerHTML = `<span>population:</span> ${data.population}`
+    region.innerHTML = `<span>region:</span> ${data.region}`
+    capital.innerHTML = `<span>capital:</span> ${data.capital}`
 
     node.appendChild(flag)
     node.appendChild(heading)
@@ -100,12 +101,19 @@ searchBox.addEventListener("input", (input) => {
 
 // Filter country list by continent
 filter.addEventListener("click", (e) => {
+    if (e.target.textContent === "--None--"){
+        filterLabel.textContent = "Filter by Region"
+        filter.classList.add("hide-cascade")
+        return
+    }
     let filteredList =[]
     countryListjson.forEach((item, index) => {
         if (item.region == e.target.textContent) {
             filteredList.push([index, item])
         }
     });
+    filterLabel.textContent = e.target.textContent
+    filter.classList.add("hide-cascade")
     clearCountryList()
     filteredList.forEach((item)=>{
         countryList.appendChild(makeNode(item[1],item[0]))

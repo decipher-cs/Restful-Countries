@@ -7,20 +7,27 @@ $Light-Mode-Text: hsl(200, 15%, 8%);
 $Light-Mode-Input: hsl(0, 0%, 52%);
 $Light-Mode-Background: hsl(0, 0%, 98%);
 $Dark-Mode-Text-and-Light-Mode-Elements: hsl(0, 0%, 100%);
+$Text-Light-Mode: rgba(38, 36, 36, 0.838);
+$Text-Dark-Mode: rgb(243, 242, 242);
 
 
 // Global vars
 
-$shadow-color-dark: rgb(0, 0, 0);
-$shadow-color-light: complement(rgb(64, 64, 64));
-$shadow-spread: 5px;
+$shadow-color-dark: rgba(25, 24, 24, 0.439);
+$shadow-color-light: rgba(11, 11, 11, 0.062);
+$shadow-spread: 24px;
 
 $border-radius: 7px;
 
 $desktop-media-query: 700px;
 
-$padding: 2em;
+$padding-block:0.9em;
+$padding-inline: 1.0em;
+$padding-all: 2em;
 
+$font-size: 2rem;
+
+// Mixins and functions
 @mixin heading-config(){
     display: flex;
 
@@ -42,4 +49,5 @@ $padding: 2em;
       font-weight: 600;
     }
     font-size: 0.7rem;
+
 }
