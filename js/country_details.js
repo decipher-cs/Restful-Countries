@@ -12,6 +12,9 @@ const countryFlagImg = document.querySelector(".datum-country-flag-img");
 const languageList = document.querySelector(".datum-languages")
 const borderCountriesContainer = document.querySelector(".datum-border-countries")
 const redirectionBtn = document.querySelector(".main-content__redirection");
+// const menuArrowIcon = document.querySelector(".filter-section__dropdown--toggle-img");
+        // menuArrowIcon.setAttribute("src", "https://img.icons8.com/material-rounded/24/535151/circled-up.png")
+        // menuArrowIcon.setAttribute("src", "https://img.icons8.com/material-rounded/24/ffffff/circled-up.png")
 
 
 // Parsed values from URL parameters
