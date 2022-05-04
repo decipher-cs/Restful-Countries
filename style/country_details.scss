@@ -18,7 +18,6 @@
 button {
   border: 0px;
   cursor: pointer;
-  box-shadow: 0px 0px var.$shadow-spread var(--shadow);
 }
 
 .heading {
@@ -40,18 +39,35 @@ button {
     padding-block: var.$padding-block;
     padding-inline: var.$padding-inline;
     margin-bottom: 20px;
+    border-radius: var.$border-radius;
 
     width: clamp(110px, 25vw, 170px);
 
     gap: 10px;
     cursor: pointer;
+    box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
   }
 
-  &__border-countries button {
-    margin-right: 15px;
+
+  &__border-countries {
+    button {
+      margin-right: 15px;
+      padding-block: var.$padding-block;
+      padding-inline: var.$padding-inline;
+      box-shadow: 0px 0px var.$shadow-spread var(--shadow-color);
+      border-radius: var.$border-radius;
+    }
+    &--title {
+      grid-column: 1/-1;
+    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 10px;
   }
 }
-
+.country-details__datum{
+  margin-block: 15px;
+}
 @media (min-width: var.$desktop-media-query) {
   .main-content {
     display: grid;
@@ -65,7 +81,6 @@ button {
       grid-row: 2/5;
     }
     &__datum--country-title {
-      grid-column: span 2;
       grid-row: 2/3;
     }
     &__country-details--geography {

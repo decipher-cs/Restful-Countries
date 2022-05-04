@@ -8,3 +8,25 @@ body{
 .heading ,.main-content__redirection, button{
     background-color: var(--elements);
 }
+
+// FONT WEIGHT AND SIZE
+
+.heading {
+    .heading__title {
+      font-size: 1.5rem;
+    }
+    .heading__toggle-text {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+}
+
+.main-content__datum--country-title{
+  font-size: 1.5rem;
+}
+
+.country-details__datum {
+  span{
+    font-weight: 800;
+  }
+}

@@ -80,7 +80,7 @@ let borderCountriesBtn = ()=>{
 // Apply parsed items to the list in the html file
 let applyData = (locationArray, dataArray) => {
     for (var i = 0; i < 8; i++) {
-        locationArray[i].textContent += ` ${dataArray[i]}`
+        locationArray[i].innerHTML += ` ${dataArray[i]}`
     }
 }
 
