@@ -92,11 +92,10 @@ searchBox.addEventListener("input", (input) => {
             filteredList.push([index, item])
         }
     });
-    console.log(filteredList)
-    // clearCountryList()
-    // filteredList.forEach((item) => {
-    //     countryList.appendChild(makeNode(item[1], item[0]))
-    // })
+    clearCountryList()
+    filteredList.forEach((item) => {
+        countryList.appendChild(makeNode(item[1], item[0]))
+    })
 
 })
 
