@@ -26,6 +26,12 @@ redirectionBtn.onclick = ()=>{
     console.log("fahd")
 }
 
+window.addEventListener("load", ()=>{
+    // document.title = getValue("name")[1]
+    // console.log(getValue("name")[1])
+})
+
+
 /////////////////////
 //*  FUNCTIONS   *//
 ///////////////////
@@ -67,8 +73,12 @@ let parseAndPutLang = ()=>{
 // Add a button to the DOM for every bordering country the selected nation has
 let borderCountriesBtn = ()=>{
     let regex = new RegExp(`"borders":\\[([^\\]]+)`)
-    var borderArr = apiDataStr.match(regex)[1].replaceAll('"',"").split(",")
-    if (borderArr.length === 0){
+    var borderArr = apiDataStr.match(regex)
+    if (!borderArr){
+        return
+    }
+    borderArr =  borderArr[1].replaceAll('"',"").split(",")
+    if (borderArr.length == 0){
         borderCountriesContainer.innerHTML+=`<p>None</p>`
         return
     }
@@ -97,4 +107,3 @@ countryFlagImg.setAttribute("src", parseFlagUrl())
 countryFlagImg.setAttribute("alt", "flag of "+ getValue("name")[1])
 borderCountriesBtn()
 parseAndPutLang()
-console.log(getValue("nativeName"))
