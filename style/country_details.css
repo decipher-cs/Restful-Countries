@@ -189,7 +189,8 @@ button {
 
 .heading {
   display: flex;
-  padding: 1rem;
+  padding-block: 2em;
+  padding-inline: min(8vw, 5em);
   box-shadow: 0px 0px 12px 0px var(--shadow-color);
   font-size: 0.7rem;
 }

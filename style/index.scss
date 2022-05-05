@@ -32,9 +32,14 @@ input {
   flex-wrap: wrap;
 
   align-items: center;
+    justify-content:center;
+  @media screen and  (min-width: var.$desktop-media-query){
+  justify-content:space-between;
+    
+  }
   
   padding-block: calc(var.$padding-block + 1em);
-  padding-inline: calc(var.$padding-inline + 1.4em);
+  padding-inline: calc(var.$padding-inline + 3.4em);
   gap: 40px;
 
 
@@ -110,11 +115,11 @@ input {
 
 .country-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
 
   justify-content: space-evenly;
 
-  gap: 50px;
+  gap: 80px;
   padding: 40px;
 }
 

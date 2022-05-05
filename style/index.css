@@ -213,7 +213,8 @@ input {
 
 .heading {
   display: flex;
-  padding: 1rem;
+  padding-block: 2em;
+  padding-inline: min(8vw, 5em);
   box-shadow: 0px 0px 12px 0px var(--shadow-color);
   font-size: 0.7rem;
 }
@@ -233,9 +234,15 @@ input {
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   padding-block: 1.9em;
-  padding-inline: 2.4em;
+  padding-inline: 4.4em;
   gap: 40px;
+}
+@media screen and (min-width: 700px) {
+  .filter-section {
+    justify-content: space-between;
+  }
 }
 
 .filter-section__search-box {
@@ -301,9 +308,9 @@ input {
 
 .country-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
   justify-content: space-evenly;
-  gap: 50px;
+  gap: 80px;
   padding: 40px;
 }
 

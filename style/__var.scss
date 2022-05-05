@@ -31,7 +31,8 @@ $font-size: 2rem;
 @mixin heading-config(){
     display: flex;
 
-    padding: 1rem;
+    padding-block: 2em;
+    padding-inline: min(8vw, 5em);
   
     // @include var.theme;
     box-shadow: 0px 0px $shadow-spread var(--shadow-color);
