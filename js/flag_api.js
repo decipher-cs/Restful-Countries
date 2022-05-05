@@ -22,7 +22,6 @@ fetch(apiUrl).then((data) => {
     return data.json()
 }).then((data) => {
     countryListjson = data
-    console.log(data)
 }).then(() => {
     for (let i = 1; i <= 15; i++) {
         var randCountry = getRandom(countryListjson.length)
@@ -113,7 +112,7 @@ filter.addEventListener("click", (e) => {
         filterLabel.textContent = e.target.textContent
     }
 
-    let filteredList =[]
+    let filteredList = []
     countryListjson.forEach((item, index) => {
         if (item.region == e.target.textContent) {
             filteredList.push([index, item])
@@ -121,17 +120,24 @@ filter.addEventListener("click", (e) => {
     });
     filter.classList.add("hide-cascade")
     clearCountryList()
-    filteredList.forEach((item)=>{
-        countryList.appendChild(makeNode(item[1],item[0]))
+    filteredList.forEach((item) => {
+        countryList.appendChild(makeNode(item[1], item[0]))
     })
 })
-
 // Create a URL which links to another html page and add the json object of a country as a parameter to the url
-countryList.addEventListener("click", (item) => {
-    var countryName = item.target.parentNode.childNodes[1].innerText.replace(/\w+: /, "")
-    var countryIndex = item.target.parentNode.getAttribute("data-index")
-    var countryData = JSON.stringify(countryListjson[countryIndex])
-    if (item.target.parentNode.classList == 'country-list__country-card') {
-        window.location.href = `/country_details.html?data=${countryData}`
-    }
-})
+
+var events = ["click", "keyup"]
+
+events.forEach((evt) => {
+    countryList.addEventListener(evt, (item) => {
+        var countryIndex = evt == "click"
+            ? item.target.parentNode.getAttribute("data-index")
+            : item.target.getAttribute("data-index")
+        var countryData = JSON.stringify(countryListjson[countryIndex])
+        if ((item.target.parentNode.classList == 'country-list__country-card') && (evt == "click")) {
+            window.location.href = `/country_details.html?data=${countryData}`
+        } else if ((item.key == "Enter") && (item.target.classList == "country-list__country-card")){
+            window.location.href = `/country_details.html?data=${countryData}`
+        }
+    })
+});
