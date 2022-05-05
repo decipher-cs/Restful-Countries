@@ -24,7 +24,7 @@ fetch(apiUrl).then((data) => {
     countryListjson = data
     console.log(data)
 }).then(() => {
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 10; i++) {
         var randCountry = getRandom(countryListjson.length)
         countryList.appendChild(makeNode(countryListjson[randCountry], randCountry))
     }
