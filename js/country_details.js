@@ -27,8 +27,7 @@ redirectionBtn.onclick = ()=>{
 }
 
 window.addEventListener("load", ()=>{
-    // document.title = getValue("name")[1]
-    // console.log(getValue("name")[1])
+    document.title = getValue("name")[1]
 })
 
 
