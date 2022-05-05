@@ -100,12 +100,15 @@ let setPopulation = (population)=>{
     return new Intl.NumberFormat('en-EN').format(population)
 }
 
+let getNativeName = (nativeName)=>{
+    return value = nativeName ? nativeName : "None"
+}
 /////////////////////////
 //*  IMPLEMENTATION  *//
 ///////////////////////
 
 
-dataSet = [getValue("name")[1], getValue("nativeName")[1], setPopulation(getValue("population")[1]), getValue("region")[1], getValue("subregion")[1], getValue("capital")[1], getValue("topleveldomain")[1], parseCurrency()]
+dataSet = [getValue("name")[1], getNativeName(getValue("nativeName")[1]), setPopulation(getValue("population")[1]), getValue("region")[1], getValue("subregion")[1], getValue("capital")[1], getValue("topleveldomain")[1], parseCurrency()]
 applyData(domDataList, dataSet)
 countryFlagImg.setAttribute("src", parseFlagUrl())
 countryFlagImg.setAttribute("alt", "flag of "+ getValue("name")[1])
