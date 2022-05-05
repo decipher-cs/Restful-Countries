@@ -14,7 +14,9 @@
 
   transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 }
-
+a{
+  text-decoration: none;
+}
 button {
   border: 0px;
   cursor: pointer;

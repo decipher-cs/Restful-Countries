@@ -46,6 +46,7 @@ makeNode = (data, index) => {
 
     node.classList.add("country-list__country-card")
     node.setAttribute("data-index", index)
+    node.setAttribute("tabindex", "0")
 
     flag.setAttribute("src", `${data.flag}`)
     heading.innerHTML = `${data.name}`

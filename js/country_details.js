@@ -65,6 +65,9 @@ let parseAndPutLang = ()=>{
     // value[0] = value[0].replace(otherRegex, "")
     value.forEach((item, index)=>{
         value[index] = item.match(otherRegex)[1]
+        if(index != value.length){
+            languageList.innerHTML+=','
+        }
         languageList.innerHTML+= ` ${value[index]}`
     })
 }
@@ -93,14 +96,16 @@ let applyData = (locationArray, dataArray) => {
     }
 }
 
-
+let setPopulation = (population)=>{
+    return new Intl.NumberFormat('en-EN').format(population)
+}
 
 /////////////////////////
 //*  IMPLEMENTATION  *//
 ///////////////////////
 
 
-dataSet = [getValue("name")[1], getValue("nativeName")[1], getValue("population")[1], getValue("region")[1], getValue("subregion")[1], getValue("capital")[1], getValue("topleveldomain")[1], parseCurrency()]
+dataSet = [getValue("name")[1], getValue("nativeName")[1], setPopulation(getValue("population")[1]), getValue("region")[1], getValue("subregion")[1], getValue("capital")[1], getValue("topleveldomain")[1], parseCurrency()]
 applyData(domDataList, dataSet)
 countryFlagImg.setAttribute("src", parseFlagUrl())
 countryFlagImg.setAttribute("alt", "flag of "+ getValue("name")[1])
