@@ -70,7 +70,7 @@ let getRandom = (max) => {
 // Clear country list
 let clearCountryList = () => {
     let cardList = document.querySelectorAll(".country-list__country-card")
-    cardList.forEach((item)=>{
+    cardList.forEach((item) => {
         item.remove()
     })
 }
@@ -86,33 +86,39 @@ searchBox.addEventListener("input", (input) => {
     query = query.trim()
     let filteredList = []
     let regex = new RegExp(query, 'i')
-    
+
     countryListjson.forEach((item, index) => {
-        if ( regex.test(item.name) || regex.test(item.capital) ){
-            filteredList.push([index ,item])
-        } 
+        if (regex.test(item.name) || regex.test(item.capital)) {
+            filteredList.push([index, item])
+        }
     });
-    clearCountryList()
-    filteredList.forEach((item)=>{
-        countryList.appendChild(makeNode(item[1],item[0]))
-    })
+    console.log(filteredList)
+    // clearCountryList()
+    // filteredList.forEach((item) => {
+    //     countryList.appendChild(makeNode(item[1], item[0]))
+    // })
 
 })
 
 // Filter country list by continent
 filter.addEventListener("click", (e) => {
-    if (e.target.textContent === "--None--"){
+    if (e.target.classList.contains("filter-section__dropdown--cascade")) {
+        return
+    }
+    if (e.target.textContent === "--None--") {
         filterLabel.textContent = "Filter by Region"
         filter.classList.add("hide-cascade")
         return
+    } else {
+        filterLabel.textContent = e.target.textContent
     }
+
     let filteredList =[]
     countryListjson.forEach((item, index) => {
         if (item.region == e.target.textContent) {
             filteredList.push([index, item])
         }
     });
-    filterLabel.textContent = e.target.textContent
     filter.classList.add("hide-cascade")
     clearCountryList()
     filteredList.forEach((item)=>{
@@ -121,11 +127,11 @@ filter.addEventListener("click", (e) => {
 })
 
 // Create a URL which links to another html page and add the json object of a country as a parameter to the url
-countryList.addEventListener("click", (item)=>{
+countryList.addEventListener("click", (item) => {
     var countryName = item.target.parentNode.childNodes[1].innerText.replace(/\w+: /, "")
     var countryIndex = item.target.parentNode.getAttribute("data-index")
     var countryData = JSON.stringify(countryListjson[countryIndex])
-    if (item.target.parentNode.classList == 'country-list__country-card'){
+    if (item.target.parentNode.classList == 'country-list__country-card') {
         window.location.href = `/country_details.html?data=${countryData}`
     }
 })

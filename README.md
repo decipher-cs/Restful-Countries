@@ -8,7 +8,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [The challenge](#the-challenge)
-    - [Screenshot](#screenshot)
     - [Links](#links)
     - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
@@ -28,16 +27,11 @@ Users should be able to:
 - Click on a country to see more detailed information on a separate page
 - Toggle the color scheme between light and dark mode
 
-### Screenshot
-
-![](./screenshot.jpg)
-
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
-- [Live Site URL](https://your-live-site-url.com)
-
+- [Solution URL](https://gitlab.com/webdev-challenges/rest-countries)
+- [Live Site URL](https://benevolent-wisp-773a15.netlify.app/)
 
 ### Continued development
 
@@ -46,14 +40,13 @@ Users should be able to:
 
 ### Useful resources
 
-mdn string methods
-
+- [MDN - Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@DeSipher](https://www.frontendmentor.io/profile/de-sipher)
 
 
 ## Acknowledgments
 
-restful api guys
-https://icons8.com/icons/set/arrow
+- [Icons](https://icons8.com/icons/set/arrow)
+- [Rest countries API](https://restcountries.com/)
