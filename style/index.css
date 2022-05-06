@@ -164,21 +164,11 @@ body {
 }
 
 .heading .heading__title {
-  font-size: 1rem;
-}
-@media screen and (min-width: 450px) {
-  .heading .heading__title {
-    font-size: 1.5rem;
-  }
+  font-size: 1.4rem;
 }
 .heading .heading__toggle-text {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 600;
-}
-@media screen and (min-width: 450px) {
-  .heading .heading__toggle-text {
-    font-size: 1rem;
-  }
 }
 
 .filter-section__search-box--input, .filter-section__dropdown {
@@ -223,9 +213,10 @@ input {
 
 .heading {
   display: flex;
+  flex-wrap: wrap;
   padding-block: 2em;
   padding-inline: min(7vw, 4em);
-  gap: 10px;
+  gap: 20px;
   box-shadow: 0px 0px 12px 0px var(--shadow-color);
 }
 .heading__title {
@@ -343,6 +334,7 @@ input {
   display: inline-block;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 .country-list__country-card h4 {
   margin-top: 20px;

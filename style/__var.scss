@@ -30,11 +30,12 @@ $font-size: 2rem;
 // Mixins and functions
 @mixin heading-config(){
     display: flex;
+    flex-wrap: wrap;
 
     padding-block: 2em;
     padding-inline: min(7vw, 4em);
   
-    gap: 10px;
+    gap: 20px;
     box-shadow: 0px 0px $shadow-spread var(--shadow-color);
   
     &__title {
