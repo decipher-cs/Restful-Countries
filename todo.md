@@ -3,3 +3,4 @@
 - [x] Make cards focusable
 - [x] Make navbar title redirect to the main page
 - [x] Put commas in population
+- [ ] Add div with flag as bg img

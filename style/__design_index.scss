@@ -3,8 +3,8 @@
 /////////////////
 // Text-color //
 ///////////////
-*{
-    color: var(--text);
+* {
+  color: var(--text);
 }
 
 ///////////////////////
@@ -27,39 +27,44 @@ body {
 ////////////
 .heading {
   .heading__title {
-    font-size: 1.5rem;
+    font-size: 1.0rem;
+    @media screen and (min-width: 450px) {
+      font-size: 1.5rem;
+    }
   }
   .heading__toggle-text {
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: 600;
+    @media screen and (min-width: 450px) {
+      font-size: 1rem;
+    }
   }
 }
 
-.filter-section{
-    &__search-box--input,
-    &__dropdown{
-        font-size: 0.9rem;
-        font-weight: 300;
-    }
-    &__search-box--input{
-        font-weight: 600;
-    }
-    &__search-box--input:focus{
-        outline: var(--bg) solid 3px;
-        border-radius: 7px; 
-    }
+.filter-section {
+  &__search-box--input,
+  &__dropdown {
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+  &__search-box--input {
+    font-weight: 600;
+  }
+  &__search-box--input:focus {
+    outline: var(--bg) solid 3px;
+    border-radius: 7px;
+  }
 }
 
-.country-list__country-card{
-    h4{
-        font-size: 1.3rem;
-        font-weight: 800;
-    }
-    p{
-        font-size: 1rem
-    }
-    span{
-        font-weight: 600;
-    }
-    
+.country-list__country-card {
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+  p {
+    font-size: 1rem;
+  }
+  span {
+    font-weight: 600;
+  }
 }

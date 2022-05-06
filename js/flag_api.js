@@ -37,7 +37,7 @@ fetch(apiUrl).then((data) => {
 // Create node and attach it to the country list
 makeNode = (data, index) => {
     let node = document.createElement("article");
-    let flag = document.createElement("img");
+    let flag = document.createElement("div")
     let heading = document.createElement("h4")
     let population = document.createElement("p");
     let region = document.createElement("p");
@@ -47,7 +47,8 @@ makeNode = (data, index) => {
     node.setAttribute("data-index", index)
     node.setAttribute("tabindex", "0")
 
-    flag.setAttribute("src", `${data.flag}`)
+    flag.style.backgroundImage = `url('${data.flag}') `
+    flag.classList.add("country-list__country-card--flag-img", "card__img")
     heading.innerHTML = `${data.name}`
     population.innerHTML = `<span>population:</span> ${data.population}`
     region.innerHTML = `<span>region:</span> ${data.region}`

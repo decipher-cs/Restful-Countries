@@ -194,9 +194,9 @@ button {
 .heading {
   display: flex;
   padding-block: 2em;
-  padding-inline: min(8vw, 5em);
+  padding-inline: min(7vw, 4em);
+  gap: 10px;
   box-shadow: 0px 0px 12px 0px var(--shadow-color);
-  font-size: 0.7rem;
 }
 .heading__title {
   flex-grow: 1;
@@ -204,7 +204,7 @@ button {
 .heading__theme-switch-btn {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   cursor: pointer;
   font-weight: 600;
 }
