@@ -23,7 +23,6 @@ var dataSet;
 
 redirectionBtn.onclick = ()=>{
     window.location.href = '/index.html'
-    console.log("fahd")
 }
 
 window.addEventListener("load", ()=>{
@@ -76,14 +75,13 @@ let parseAndPutLang = ()=>{
 let borderCountriesBtn = ()=>{
     let regex = new RegExp(`"borders":\\[([^\\]]+)`)
     var borderArr = apiDataStr.match(regex)
+    console.log(borderArr)
     if (!borderArr){
-        return
-    }
-    borderArr =  borderArr[1].replaceAll('"',"").split(",")
-    if (borderArr.length == 0){
         borderCountriesContainer.innerHTML+=`<p>None</p>`
         return
     }
+    borderArr =  borderArr[1].replaceAll('"',"").split(",")
+    
     for (var i=0; i<borderArr.length ; i++){
         borderCountriesContainer.innerHTML+=`<button>${borderArr[i]}</button>`
     }
