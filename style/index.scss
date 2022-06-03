@@ -132,7 +132,7 @@ input {
   overflow: hidden;
   cursor: pointer;
   padding-bottom: var.$padding-inline;
-  transition: transform 500ms;
+  transition: transform 500ms, background-color 300ms ease-in-out;
 
   // Select every h4 and p tag but not the img tag
   & h4:not(img), & p:not(img){
