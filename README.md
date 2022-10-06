@@ -45,4 +45,4 @@ Users should be able to:
 
 -   [Icons](https://icons8.com/icons/set/arrow)
 -   [Rest countries API](https://restcountries.com/)
--   [The repo logo, Countries icons, was created by Icongeek26 - Flaticon](https://www.flaticon.com/free-icons/countries)
+-   [The repo logo, Countries icons, was created by Icongeek26 - Flaticon](https://www.flaticon.com/authors/icongeek26)
